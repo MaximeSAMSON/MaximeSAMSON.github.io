@@ -1,15 +1,5 @@
 <!doctype html>
-<!--
-  E-PORTFOLIO DE MAXIME SAMSON
-  Un seul fichier : le style (<style>) est en haut, le contenu au milieu, le script tout en bas.
-  Pour modifier les textes, cherche les commentaires marqués ✏️.
-  Sur le site, tout ce qui est surligné en rose est à compléter (classe "todo").
 
-  Fichiers à déposer à côté de index.html (noms exacts, en minuscules) :
-    photo.jpg  -> remplace le rond blanc
-    cv.pdf     -> rubrique CV
-    video.mp4  -> vidéo de présentation (ou lien YouTube, voir plus bas)
--->
 <html lang="en">
 <head>
 <meta charset="utf-8">
