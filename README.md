@@ -1,1 +1,850 @@
-# MaximeSAMSON.github.io
+<!doctype html>
+<!--
+  E-PORTFOLIO DE MAXIME SAMSON
+  Un seul fichier : le style (<style>) est en haut, le contenu au milieu, le script tout en bas.
+  Pour modifier les textes, cherche les commentaires marqués ✏️.
+  Sur le site, tout ce qui est surligné en rose est à compléter (classe "todo").
+
+  Fichiers à déposer à côté de index.html (noms exacts, en minuscules) :
+    photo.jpg  -> remplace le rond blanc
+    cv.pdf     -> rubrique CV
+    video.mp4  -> vidéo de présentation (ou lien YouTube, voir plus bas)
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maxime Samson – E-portfolio</title>
+<meta name="description" content="E-portfolio of Maxime Samson, engineering student in fluid mechanics at ENSEEIHT, Toulouse.">
+<meta name="theme-color" content="#F7F9FB">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Maxime Samson – E-portfolio">
+<meta property="og:description" content="Engineering student in fluid mechanics at ENSEEIHT, Toulouse.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F2E50'/%3E%3Cpath d='M3 10.5C10 10.5 11 6.5 16 6.5S22 10.5 29 10.5M3 21.5C10 21.5 11 25.5 16 25.5S22 21.5 29 21.5' fill='none' stroke='%23A8CBF0' stroke-width='1.5'/%3E%3Cpath d='M3 16h6.5M22.5 16H29' stroke='%23FF5577' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='6.5' fill='%23fff' stroke='%23FF5577' stroke-width='1.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+  /* ---------- Couleurs et polices (modifiables ici) ---------- */
+  :root {
+    --paper: #F7F9FB;      /* fond des pages */
+    --mist: #ECF0F4;       /* fond de la barre latérale */
+    --ink: #0E1F33;        /* texte */
+    --slate: #4A5A6E;      /* texte secondaire */
+    --hairline: #D5DDE6;   /* filets */
+    --tunnel: #0F2E50;     /* fond de l'image d'accueil et de la vidéo */
+    --streak: #A8CBF0;     /* lignes de courant */
+    --dye: #D7264E;        /* couleur d'accent */
+    --dye-bright: #FF5577; /* accent sur fond sombre */
+    --sidebar: 17rem;
+    --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  }
+
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg, video, iframe, object { display: block; max-width: 100%; }
+  h1, h2, h3, p, figure { margin: 0; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+  button { font: inherit; }
+  [hidden] { display: none !important; }
+  :focus-visible { outline: 2px solid var(--dye); outline-offset: 3px; border-radius: 4px; }
+  [tabindex="-1"]:focus { outline: none; }
+  ::selection { background: #FFD5DE; }
+
+  .skip-link {
+    position: absolute; left: 1rem; top: -4rem; z-index: 100;
+    padding: .6rem 1rem; border-radius: 6px;
+    background: var(--ink); color: #fff; text-decoration: none;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  /* ---------- Marque (nom en haut à gauche) ---------- */
+  .brand {
+    display: inline-flex; align-items: center; gap: .75rem;
+    padding: .25rem .5rem .25rem .25rem; border-radius: 10px;
+    text-decoration: none;
+  }
+  .brand-mark { width: 2.25rem; height: 2.25rem; flex: none; }
+  .brand-name { display: block; font-weight: 700; font-stretch: 112%; font-size: 1.05rem; line-height: 1.2; letter-spacing: -.01em; }
+  .brand-sub { display: block; font-size: .85rem; line-height: 1.3; color: var(--slate); }
+
+  /* ---------- Barre latérale ---------- */
+  .sidebar {
+    position: fixed; top: 0; bottom: 0; left: 0; z-index: 40;
+    width: var(--sidebar);
+    display: flex; flex-direction: column;
+    padding: 1.75rem 1.25rem 1.5rem;
+    background: var(--mist);
+    border-right: 1px solid var(--hairline);
+    overflow-y: auto;
+  }
+  .nav { margin-top: 2.75rem; }
+  .nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .25rem; }
+  .nav a {
+    position: relative; display: block;
+    padding: .72rem .75rem .72rem 1rem; border-radius: 8px;
+    color: var(--slate); text-decoration: none;
+    font-size: 1rem; font-weight: 500; line-height: 1.3;
+    transition: color .15s ease, background-color .15s ease;
+  }
+  .nav a:hover { color: var(--ink); background: rgba(14, 31, 51, .05); }
+  .nav a[aria-current="page"] { color: var(--ink); background: #fff; }
+  .nav a[aria-current="page"]::before {
+    content: ""; position: absolute; left: 0; top: .6rem; bottom: .6rem;
+    width: 3px; border-radius: 2px; background: var(--dye);
+  }
+  .sidebar-foot { margin-top: auto; padding: 1.5rem 1rem 0; display: flex; gap: 1.5rem; font-size: .925rem; }
+  .sidebar-foot a { color: var(--slate); text-decoration: none; }
+  .sidebar-foot a:hover, .sidebar-foot a[aria-current="page"] { color: var(--ink); text-decoration: underline; }
+
+  .topbar, .backdrop { display: none; }
+
+  /* ---------- Zone principale ---------- */
+  .shell { margin-left: var(--sidebar); min-height: 100vh; display: flex; flex-direction: column; }
+  main { flex: 1; }
+  main:focus { outline: none; }
+  .js .page:not(.is-active) { display: none; }
+  .container {
+    width: 100%; max-width: 45rem; margin: 0 auto;
+    padding: 4.5rem 2.5rem 3.5rem;
+    container-type: inline-size;
+  }
+  .container.home-body { padding-top: 2.75rem; }
+  .container.cv-head { padding-bottom: 0; }
+  .container.cv-body { max-width: 62rem; padding-top: 0; padding-bottom: 0; }
+  .container.cv-foot { padding-top: 0; }
+
+  /* ---------- Accueil : écoulement autour du portrait ---------- */
+  .flow {
+    position: relative;
+    margin: 1.25rem 1.25rem 0;
+    height: clamp(21rem, 50vh, 27.5rem);
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--tunnel);
+  }
+  .flow-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .streamline { fill: none; stroke: var(--streak); stroke-width: 1.3; stroke-linejoin: round; }
+  .portrait-bg { fill: #fff; }
+  .dividing { fill: none; stroke: var(--dye-bright); stroke-width: 2.6; }
+  .flow-caption {
+    position: absolute; left: 1rem; bottom: 1rem;
+    padding: .15rem .5rem; border-radius: 4px;
+    background: var(--tunnel);
+    font-family: var(--serif); font-style: italic; font-size: .875rem; line-height: 1.4;
+    color: var(--streak);
+  }
+  .js .flow-svg.is-drawing path {
+    stroke-dasharray: 1 1;
+    stroke-dashoffset: 1;
+    animation: draw 2.4s cubic-bezier(.45, .05, .25, 1) var(--d, 0s) forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .hello {
+    text-align: center;
+    font-weight: 800; font-stretch: 125%;
+    font-size: clamp(3.5rem, 13vw, 8.75rem);
+    font-size: clamp(3.5rem, 21cqi, 8.75rem);
+    line-height: .9; letter-spacing: -.01em;
+  }
+
+  .about { margin-top: 4rem; }
+  .heading {
+    margin-bottom: 1.25rem;
+    font-weight: 700; font-stretch: 112%;
+    font-size: clamp(1.6rem, 4.6cqi, 2rem);
+    line-height: 1.15; letter-spacing: -.01em;
+  }
+  .prose { font-family: var(--serif); font-size: 1.15rem; line-height: 1.72; }
+  .prose p { max-width: 64ch; }
+  .prose p + p { margin-top: 1.1em; }
+
+  /* ---------- Boutons ---------- */
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 3rem; padding: .8rem 1.4rem;
+    border: 1.5px solid var(--ink); border-radius: 6px;
+    font-family: var(--sans); font-weight: 600; font-size: 1rem; line-height: 1.2;
+    text-decoration: none; cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn-primary { background: var(--ink); color: #fff; }
+  .btn-primary:hover { background: var(--tunnel); border-color: var(--tunnel); }
+  .btn-secondary { background: transparent; color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: #fff; }
+  .btn-small { min-height: 2.25rem; padding: .4rem .9rem; font-size: .9rem; }
+
+  /* ---------- Vidéo ---------- */
+  .video { margin-top: 4.5rem; }
+  .video-frame {
+    position: relative; aspect-ratio: 16 / 9;
+    border-radius: 12px; overflow: hidden;
+    background: var(--tunnel);
+  }
+  .video-frame video, .video-frame iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    border: 0; background: #000;
+  }
+  .video-empty {
+    position: absolute; inset: 0;
+    display: none; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+    padding: 1.5rem; text-align: center; color: #DCE8F6;
+  }
+  .video-frame.is-empty .video-empty { display: flex; }
+  .video-frame.is-empty video { display: none; }
+  .video-empty svg { width: 3.5rem; height: 3.5rem; color: var(--streak); }
+
+  /* ---------- Pages des rubriques ---------- */
+  .page-head { padding-bottom: 2.5rem; }
+  .page-title {
+    font-weight: 780; font-stretch: 118%;
+    font-size: clamp(2.2rem, 7.5cqi, 3.25rem);
+    line-height: 1.04; letter-spacing: -.02em;
+  }
+  .lede {
+    margin-top: 1rem; max-width: 58ch;
+    font-family: var(--serif); font-size: 1.2rem; line-height: 1.62; color: var(--slate);
+  }
+  .block { margin-top: 2.75rem; }
+  .block-title { margin-bottom: .85rem; font-weight: 650; font-stretch: 108%; font-size: 1.15rem; line-height: 1.3; }
+
+  .entries { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--hairline); }
+  .entry {
+    display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); column-gap: 1.75rem;
+    padding: 1.35rem 0; border-top: 1px solid var(--hairline);
+  }
+  .entry-when { padding-top: .1rem; font-size: .95rem; color: var(--slate); font-variant-numeric: tabular-nums; }
+  .entry-title { font-weight: 650; font-size: 1.08rem; line-height: 1.4; }
+  .entry-where { margin-top: .15rem; font-size: .95rem; color: var(--slate); }
+  .entry-text { margin-top: .55rem; font-family: var(--serif); font-size: 1.05rem; line-height: 1.62; }
+
+  /* Texte à compléter : surligné en rose sur le site */
+  .todo {
+    padding: 0 .2em; border-radius: 2px;
+    background: #FFE4EA; color: #A3173A;
+    box-shadow: inset 0 -1.5px 0 var(--dye);
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  }
+
+  /* CV */
+  .cv-preview {
+    width: 100%; height: min(80vh, 62rem);
+    border: 1px solid var(--hairline); border-radius: 12px; background: #fff;
+  }
+  .cv-fallback {
+    display: grid; place-items: center; height: 100%; padding: 2rem;
+    text-align: center; font-family: var(--serif); color: var(--slate);
+  }
+
+  /* Contact */
+  .contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; }
+  .contact-value { font-size: 1.08rem; font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--hairline); }
+  .contact-value:hover { border-color: var(--ink); }
+
+  .back { margin-top: 2.5rem; font-size: .95rem; }
+  .back a { color: var(--slate); }
+  .back a:hover { color: var(--ink); }
+
+  .site-footer .container { padding-top: 0; padding-bottom: 2.5rem; }
+  .site-footer p { padding-top: 1.5rem; border-top: 1px solid var(--hairline); font-size: .875rem; color: var(--slate); }
+
+  /* ---------- Téléphone et tablette : menu repliable ---------- */
+  @media (max-width: 960px) {
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 4rem; padding: 0 .75rem 0 1rem;
+      background: rgba(247, 249, 251, .92);
+      -webkit-backdrop-filter: saturate(1.4) blur(10px); backdrop-filter: saturate(1.4) blur(10px);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .menu-button {
+      display: inline-grid; place-items: center;
+      width: 2.75rem; height: 2.75rem;
+      border: 0; border-radius: 8px; background: transparent; color: var(--ink); cursor: pointer;
+    }
+    .menu-icon, .menu-icon::before, .menu-icon::after {
+      display: block; width: 1.25rem; height: 2px; border-radius: 1px;
+      background: currentColor; transition: transform .2s ease, background-color .2s ease;
+    }
+    .menu-icon { position: relative; }
+    .menu-icon::before, .menu-icon::after { content: ""; position: absolute; left: 0; }
+    .menu-icon::before { top: -6px; }
+    .menu-icon::after { top: 6px; }
+    [aria-expanded="true"] .menu-icon { background: transparent; }
+    [aria-expanded="true"] .menu-icon::before { transform: translateY(6px) rotate(45deg); }
+    [aria-expanded="true"] .menu-icon::after { transform: translateY(-6px) rotate(-45deg); }
+
+    .sidebar {
+      top: 4rem; z-index: 50; width: min(20rem, 86vw);
+      transform: translateX(-100%); visibility: hidden;
+      transition: transform .28s ease, visibility 0s linear .28s;
+    }
+    .sidebar .brand { display: none; }
+    .nav { margin-top: .5rem; }
+    .menu-open .sidebar {
+      transform: none; visibility: visible;
+      transition: transform .28s ease;
+      box-shadow: 0 10px 40px rgba(14, 31, 51, .18);
+    }
+    .backdrop {
+      display: block; position: fixed; inset: 4rem 0 0; z-index: 45;
+      background: rgba(14, 31, 51, .35);
+      opacity: 0; pointer-events: none; transition: opacity .28s ease;
+    }
+    .menu-open .backdrop { opacity: 1; pointer-events: auto; }
+    body.menu-open { overflow: hidden; }
+
+    .shell { margin-left: 0; padding-top: 4rem; }
+    .flow { margin: .75rem .75rem 0; height: 20rem; border-radius: 16px; }
+    .container { padding: 3rem 1.25rem 2.5rem; }
+  }
+  @media (min-width: 961px) { .menu-button { display: none; } }
+  @media (max-width: 700px) { .cv-preview { display: none; } }
+  @media (max-width: 560px) {
+    .entry { grid-template-columns: minmax(0, 1fr); row-gap: .35rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .flow-svg.is-drawing path { animation: none; stroke-dasharray: none; stroke-dashoffset: 0; }
+    .sidebar, .backdrop, .nav a, .btn { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Barre du haut (téléphone uniquement) -->
+<header class="topbar">
+  <a class="brand" href="#home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0F2E50"/><path d="M3 10.5C10 10.5 11 6.5 16 6.5S22 10.5 29 10.5M3 21.5C10 21.5 11 25.5 16 25.5S22 21.5 29 21.5" fill="none" stroke="#A8CBF0" stroke-width="1.5"/><path d="M3 16h6.5M22.5 16H29" stroke="#FF5577" stroke-width="1.6"/><circle cx="16" cy="16" r="6.5" fill="#fff" stroke="#FF5577" stroke-width="1.5"/></svg>
+    <span><span class="brand-name">Maxime Samson</span><span class="brand-sub">E-portfolio</span></span>
+  </a>
+  <button class="menu-button" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="Open the menu">
+    <span class="menu-icon" aria-hidden="true"></span>
+  </button>
+</header>
+
+<!-- Barre latérale -->
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="#home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0F2E50"/><path d="M3 10.5C10 10.5 11 6.5 16 6.5S22 10.5 29 10.5M3 21.5C10 21.5 11 25.5 16 25.5S22 21.5 29 21.5" fill="none" stroke="#A8CBF0" stroke-width="1.5"/><path d="M3 16h6.5M22.5 16H29" stroke="#FF5577" stroke-width="1.6"/><circle cx="16" cy="16" r="6.5" fill="#fff" stroke="#FF5577" stroke-width="1.5"/></svg>
+    <span><span class="brand-name">Maxime Samson</span><span class="brand-sub">E-portfolio</span></span>
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <ul>
+      <li><a href="#engineering-course">Engineering course</a></li>
+      <li><a href="#international-mobility">International mobility</a></li>
+      <li><a href="#civic-engagement">Civic engagement</a></li>
+      <li><a href="#other-activities">Other activities</a></li>
+    </ul>
+  </nav>
+  <div class="sidebar-foot">
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+  </div>
+</aside>
+<div class="backdrop" aria-hidden="true"></div>
+
+<div class="shell">
+<main id="main" tabindex="-1">
+
+  <!-- =========================================================
+       ACCUEIL
+       ========================================================= -->
+  <section class="page is-active" id="home" data-page data-title="Home" aria-labelledby="hello">
+
+    <!-- ✏️ PHOTO : dépose un fichier photo.jpg à côté de index.html, il remplace automatiquement le rond blanc.
+         (Pour un autre nom ou format, modifie data-src="photo.jpg" ci-dessous.) -->
+    <figure class="flow">
+      <svg class="flow-svg is-drawing" viewBox="-1100 -210 2200 420" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Portrait of Maxime Samson">
+        <defs><clipPath id="portrait-clip"><circle r="93"/></clipPath></defs>
+        <g class="flow-lines"></g>
+        <circle class="portrait-bg" r="100"/>
+        <image class="portrait" data-src="photo.jpg" x="-93" y="-93" width="186" height="186" preserveAspectRatio="xMidYMid slice" clip-path="url(#portrait-clip)"/>
+        <path class="dividing" pathLength="1" style="--d:.9s" d="M-1100 0H-100A100 100 0 0 1 100 0H1100"/>
+        <path class="dividing" pathLength="1" style="--d:.9s" d="M-1100 0H-100A100 100 0 0 0 100 0H1100"/>
+      </svg>
+      <figcaption class="flow-caption">Fig. 1. Potential flow around a cylinder.</figcaption>
+    </figure>
+
+    <div class="container home-body">
+      <h1 class="hello" id="hello" tabindex="-1">HELLO</h1>
+
+      <section class="about" aria-labelledby="about-title">
+        <h2 class="heading" id="about-title">About me</h2>
+        <!-- ✏️ PRÉSENTATION : réécris ces paragraphes avec tes mots. -->
+        <div class="prose">
+          <p>I'm Maxime Samson, a first-year engineering student at ENSEEIHT in Toulouse, in the Fluid Mechanics, Energy and Environment track. I came to engineering through physics: a CUPGE preparatory programme in physics and chemistry, then a bachelor's degree in fundamental physics at Université Paul Sabatier.</p>
+          <p>What drives me is aerospace propulsion, from turbojets to rocket engines, and the fluid mechanics behind it. I want to start my career in R&amp;D and design engineering in the French and European aerospace industry, and later move into project management.</p>
+          <p>Outside class, I work summers as a lifeguard, tutor first-year students in mathematics, run, mix as a DJ and take salsa lessons.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="#cv">View my CV</a>
+          <a class="btn btn-secondary" href="#contact">Contact me</a>
+        </div>
+      </section>
+
+      <section class="video" aria-labelledby="video-title">
+        <h2 class="heading" id="video-title">Video presentation</h2>
+        <!-- ✏️ VIDÉO, deux possibilités :
+             1) Fichier : dépose video.mp4 (format MP4/H.264) à côté de index.html. Rien d'autre à faire.
+             2) YouTube : colle le lien de ta vidéo entre les guillemets de data-youtube,
+                par exemple data-youtube="https://youtu.be/xxxxxxxxxxx" -->
+        <div class="video-frame" data-youtube="">
+          <video controls preload="metadata" playsinline src="video.mp4#t=0.1" onerror="this.parentNode.classList.add('is-empty')"></video>
+          <div class="video-empty">
+            <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M23 19.5v17l14-8.5z" fill="currentColor"/></svg>
+            <p>Video presentation coming soon</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ✏️ RUBRIQUE : ENGINEERING COURSE
+       Pour ajouter une ligne, copie un bloc <li class="entry"> ... </li> et modifie-le.
+       ========================================================= -->
+  <section class="page" id="engineering-course" data-page data-title="Engineering course" aria-labelledby="engineering-title">
+    <div class="container">
+      <header class="page-head">
+        <h1 class="page-title" id="engineering-title" tabindex="-1">Engineering course</h1>
+        <p class="lede">How I moved from fundamental physics to engineering, and the projects that confirmed my interest in aerospace.</p>
+      </header>
+
+      <section class="block" aria-labelledby="education-title">
+        <h2 class="block-title" id="education-title">Education</h2>
+        <ol class="entries">
+          <li class="entry">
+            <p class="entry-when">2026 – now</p>
+            <div>
+              <h3 class="entry-title">Engineering degree, Fluid Mechanics, Energy and Environment (MF2E)</h3>
+              <p class="entry-where">ENSEEIHT, Toulouse</p>
+              <p class="entry-text">First year of the engineering programme. <span class="todo">Add the courses and projects you want to highlight.</span></p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-when"><span class="todo">20XX – 20XX</span></p>
+            <div>
+              <h3 class="entry-title">Bachelor's degree in Fundamental Physics (L3)</h3>
+              <p class="entry-where">Université Paul Sabatier, Toulouse</p>
+              <p class="entry-text">This degree opened the door to engineering school through the parallel admission route for university students (AST, GEI-UNIV).</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-when"><span class="todo">20XX – 20XX</span></p>
+            <div>
+              <h3 class="entry-title">CUPGE, Physics and Chemistry</h3>
+              <p class="entry-where">Université Paul Sabatier, Toulouse</p>
+              <p class="entry-text">University preparatory programme for engineering schools, with a heavy load of mathematics, physics and chemistry.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="block" aria-labelledby="projects-title">
+        <h2 class="block-title" id="projects-title">Research and projects</h2>
+        <ol class="entries">
+          <li class="entry">
+            <p class="entry-when"><span class="todo">20XX</span></p>
+            <div>
+              <h3 class="entry-title">Research internship: plasma ignition by time reversal</h3>
+              <p class="entry-where">ISAE-SUPAERO, DEOS department (PAMPA group), Toulouse</p>
+              <p class="entry-text">Plasma ignition using time-reversal techniques, with measurements by vector network analysis. <span class="todo">Describe your role and your results.</span></p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-when"><span class="todo">20XX</span></p>
+            <div>
+              <h3 class="entry-title">Simulation of the Artemis II free-return trajectory</h3>
+              <p class="entry-where">Numerical project in Python</p>
+              <p class="entry-text">From a fixed-Moon two-body model to the full figure-eight trajectory around the Moon, integrated with a hand-written RK4 scheme and animated with Matplotlib in Jupyter.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="block" aria-labelledby="tools-title">
+        <h2 class="block-title" id="tools-title">Tools</h2>
+        <ul class="entries">
+          <li class="entry">
+            <p class="entry-when">Programming</p>
+            <p class="entry-title">Python, Matplotlib, Jupyter Notebook</p>
+          </li>
+          <li class="entry">
+            <p class="entry-when">Writing</p>
+            <p class="entry-title">LaTeX</p>
+          </li>
+        </ul>
+      </section>
+
+      <p class="back"><a href="#home">Back to home</a></p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ✏️ RUBRIQUE : INTERNATIONAL MOBILITY
+       ========================================================= -->
+  <section class="page" id="international-mobility" data-page data-title="International mobility" aria-labelledby="mobility-title">
+    <div class="container">
+      <header class="page-head">
+        <h1 class="page-title" id="mobility-title" tabindex="-1">International mobility</h1>
+        <p class="lede">Where I go abroad during my studies, what I work on there, and what I bring back.</p>
+      </header>
+
+      <section class="block" aria-labelledby="planned-title">
+        <h2 class="block-title" id="planned-title">Planned mobility</h2>
+        <ol class="entries">
+          <li class="entry">
+            <p class="entry-when"><span class="todo">20XX</span></p>
+            <div>
+              <h3 class="entry-title"><span class="todo">Destination and host institution</span></h3>
+              <p class="entry-where"><span class="todo">Study semester, internship or summer programme</span></p>
+              <p class="entry-text"><span class="todo">Your goals: courses, research topic, language, culture.</span></p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="block" aria-labelledby="languages-title">
+        <h2 class="block-title" id="languages-title">Languages</h2>
+        <ul class="entries">
+          <li class="entry">
+            <p class="entry-when">French</p>
+            <p class="entry-title">Native speaker</p>
+          </li>
+          <li class="entry">
+            <p class="entry-when">English</p>
+            <p class="entry-title"><span class="todo">Level, e.g. B2 or TOEIC score</span></p>
+          </li>
+        </ul>
+      </section>
+
+      <p class="back"><a href="#home">Back to home</a></p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ✏️ RUBRIQUE : CIVIC ENGAGEMENT
+       ========================================================= -->
+  <section class="page" id="civic-engagement" data-page data-title="Civic engagement" aria-labelledby="civic-title">
+    <div class="container">
+      <header class="page-head">
+        <h1 class="page-title" id="civic-title" tabindex="-1">Civic engagement</h1>
+        <p class="lede">Commitments outside the curriculum, where I am responsible for other people.</p>
+      </header>
+
+      <ol class="entries">
+        <li class="entry">
+          <p class="entry-when">Summers <span class="todo">20XX</span>–2026</p>
+          <div>
+            <h3 class="entry-title">Seasonal lifeguard</h3>
+            <p class="entry-where">Holiday villages and campsites, pools and beaches</p>
+            <p class="entry-text">Surveillance of pools and beaches during the summer season, including at Village Club du Soleil in Port-Grimaud. Holder of the <span lang="fr">BNSSA</span> (national water safety and rescue certificate) and the <span lang="fr">PSE1</span> (team first aid, level 1).</p>
+          </div>
+        </li>
+        <li class="entry">
+          <p class="entry-when"><span class="todo">20XX</span></p>
+          <div>
+            <h3 class="entry-title">Mathematics tutor</h3>
+            <p class="entry-where">Université Paul Sabatier, Toulouse</p>
+            <p class="entry-text">Tutoring first-year students of the CUPGE programme in mathematics.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="back"><a href="#home">Back to home</a></p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ✏️ RUBRIQUE : OTHER ACTIVITIES
+       ========================================================= -->
+  <section class="page" id="other-activities" data-page data-title="Other activities" aria-labelledby="activities-title">
+    <div class="container">
+      <header class="page-head">
+        <h1 class="page-title" id="activities-title" tabindex="-1">Other activities</h1>
+        <p class="lede">What I do when I'm not studying.</p>
+      </header>
+
+      <ol class="entries">
+        <li class="entry">
+          <p class="entry-when">2026</p>
+          <div>
+            <h3 class="entry-title">Running</h3>
+            <p class="entry-where">Half-marathon and marathon</p>
+            <p class="entry-text">First half-marathon in 1 h 52 in September 2026, then the Lisbon Marathon in October 2026.</p>
+          </div>
+        </li>
+        <li class="entry">
+          <p class="entry-when">2026</p>
+          <div>
+            <h3 class="entry-title">DJ mixing</h3>
+            <p class="entry-where">Member of a mixing association</p>
+            <p class="entry-text">Learning to mix, with practice sessions every week.</p>
+          </div>
+        </li>
+        <li class="entry">
+          <p class="entry-when">2026</p>
+          <div>
+            <h3 class="entry-title">Salsa</h3>
+            <p class="entry-where">Beginner classes</p>
+            <p class="entry-text">Learning the basic steps and the first turn patterns, with one goal: dancing fluidly.</p>
+          </div>
+        </li>
+        <li class="entry">
+          <p class="entry-when"><span class="todo">20XX</span></p>
+          <div>
+            <h3 class="entry-title">Aeronautics</h3>
+            <p class="entry-where"><span lang="fr">Brevet d'Initiation Aéronautique</span> (BIA), ENAC</p>
+            <p class="entry-text">French introductory aviation certificate covering aerodynamics, aircraft, meteorology, navigation and the history of flight.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="back"><a href="#home">Back to home</a></p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ✏️ RUBRIQUE : CV  (dépose cv.pdf à côté de index.html)
+       ========================================================= -->
+  <section class="page" id="cv" data-page data-title="CV" aria-labelledby="cv-title">
+    <div class="container cv-head">
+      <header class="page-head">
+        <h1 class="page-title" id="cv-title" tabindex="-1">Curriculum vitae</h1>
+        <p class="lede">Read my CV online or download it as a PDF.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="cv.pdf" target="_blank" rel="noopener">Open the PDF</a>
+          <a class="btn btn-secondary" href="cv.pdf" download="CV-Maxime-Samson.pdf">Download the PDF</a>
+        </div>
+      </header>
+    </div>
+
+    <div class="container cv-body">
+      <object class="cv-preview" data="cv.pdf" type="application/pdf" aria-label="CV of Maxime Samson">
+        <div class="cv-fallback"><p>The preview can't be shown in this browser. Use “Open the PDF” above.</p></div>
+      </object>
+    </div>
+
+    <div class="container cv-foot">
+      <p class="back"><a href="#home">Back to home</a></p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ✏️ RUBRIQUE : CONTACT
+       Remplace l'adresse e-mail (2 fois sur la même ligne) et le lien LinkedIn,
+       puis supprime les balises <span class="todo"> qui les entourent.
+       ========================================================= -->
+  <section class="page" id="contact" data-page data-title="Contact" aria-labelledby="contact-title">
+    <div class="container">
+      <header class="page-head">
+        <h1 class="page-title" id="contact-title" tabindex="-1">Contact</h1>
+        <p class="lede">Email is the quickest way to reach me.</p>
+      </header>
+
+      <ul class="entries">
+        <li class="entry">
+          <p class="entry-when">Email</p>
+          <div class="contact-row">
+            <a class="contact-value" href="mailto:your.email@example.com"><span class="todo">your.email@example.com</span></a>
+            <button class="btn btn-secondary btn-small" type="button" data-copy-email aria-live="polite">Copy address</button>
+          </div>
+        </li>
+        <li class="entry">
+          <p class="entry-when">LinkedIn</p>
+          <div><a class="contact-value" href="https://www.linkedin.com/in/" target="_blank" rel="noopener"><span class="todo">linkedin.com/in/your-profile</span></a></div>
+        </li>
+        <li class="entry">
+          <p class="entry-when">Based in</p>
+          <p class="entry-title">Toulouse, France</p>
+        </li>
+      </ul>
+
+      <p class="back"><a href="#home">Back to home</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container"><p>© 2026 Maxime Samson</p></div>
+</footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 1. Rubriques : une seule affichée à la fois ---------- */
+  const pages = [...document.querySelectorAll('[data-page]')];
+  const sectionLinks = [...document.querySelectorAll('.nav a, .sidebar-foot a')];
+  const menuButton = document.querySelector('.menu-button');
+  const firstNavLink = document.querySelector('.nav a');
+  const NAME = 'Maxime Samson';
+
+  const setMenu = (open, restoreFocus = false) => {
+    document.body.classList.toggle('menu-open', open);
+    if (!menuButton) return;
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Close the menu' : 'Open the menu');
+    if (!open && restoreFocus) menuButton.focus();
+  };
+
+  const readHash = () => {
+    try { return decodeURIComponent(location.hash.slice(1)); } catch { return ''; }
+  };
+
+  const show = (id, fromNavigation) => {
+    const target = id ? document.getElementById(id) : null;
+    let page = target ? target.closest('[data-page]') : null;
+    if (target && !page) return; // ancre hors rubrique (ex. lien d'évitement)
+    page = page || pages[0];
+    pages.forEach(p => p.classList.toggle('is-active', p === page));
+    sectionLinks.forEach(a => {
+      if (a.getAttribute('href') === '#' + page.id) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    document.title = page.id === 'home' ? `${NAME} – E-portfolio` : `${page.dataset.title} – ${NAME}`;
+    setMenu(false);
+    if (!fromNavigation) return;
+    if (target && target !== page) { target.scrollIntoView(); return; }
+    window.scrollTo(0, 0);
+    const heading = page.querySelector('h1');
+    if (heading) heading.focus({ preventScroll: true });
+  };
+
+  window.addEventListener('hashchange', () => show(readHash(), true));
+  show(readHash(), false);
+
+  // Lien vers la rubrique déjà affichée : on remonte simplement en haut.
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || link.getAttribute('href') !== (location.hash || '#home')) return;
+    event.preventDefault();
+    setMenu(false);
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+
+  if (menuButton) {
+    menuButton.addEventListener('click', () => {
+      const open = !document.body.classList.contains('menu-open');
+      setMenu(open);
+      if (open && firstNavLink) firstNavLink.focus();
+    });
+  }
+  document.querySelector('.backdrop')?.addEventListener('click', () => setMenu(false));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false, true);
+  });
+  window.matchMedia('(min-width: 961px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+  /* ---------- 2. Accueil : lignes de courant de l'écoulement potentiel autour du portrait ---------- */
+  // Fonction de courant : psi = U·y·(1 − R²/r²). Chaque ligne tracée est une courbe psi = constante.
+  const flowSvg = document.querySelector('.flow-svg');
+  const flowLines = document.querySelector('.flow-lines');
+  if (flowSvg && flowLines) {
+    const R = 100;   // rayon du cylindre (le portrait), en unités SVG
+    const L = 1100;  // demi-largeur du dessin
+    const heightAbove = (x, psi) => { // hauteur y > 0 telle que psi(x, y) = psi (coordonnées réduites par R)
+      let lo = Math.abs(x) < 1 ? Math.sqrt(1 - x * x) : 0;
+      let hi = psi + 1;
+      for (let i = 0; i < 40; i++) {
+        const y = (lo + hi) / 2;
+        if (y * (1 - 1 / (x * x + y * y)) < psi) lo = y; else hi = y;
+      }
+      return (lo + hi) / 2;
+    };
+    const xs = [];
+    for (let x = -L; x <= L; x += Math.abs(x) < 3 * R ? 5 : 25) xs.push(x);
+    const levels = Array.from({ length: 11 }, (_, k) => 0.1 + 0.2 * k);
+    const fragment = document.createDocumentFragment();
+    levels.forEach((psi, k) => {
+      [-1, 1].forEach(side => {
+        const d = xs.map((x, i) => (i ? 'L' : 'M') + x + ' ' + (side * heightAbove(x / R, psi) * R).toFixed(1)).join('');
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('class', 'streamline');
+        path.setAttribute('d', d);
+        path.setAttribute('pathLength', '1');
+        path.style.setProperty('--d', (k * 0.07).toFixed(2) + 's');
+        path.style.opacity = (0.9 - 0.5 * k / (levels.length - 1)).toFixed(2);
+        fragment.appendChild(path);
+      });
+    });
+    flowLines.appendChild(fragment);
+    // Le tracé ne s'anime qu'une fois.
+    flowSvg.addEventListener('animationend', event => {
+      if (event.target.classList.contains('dividing')) flowSvg.classList.remove('is-drawing');
+    });
+  }
+
+  /* ---------- 3. Photo : affichée seulement si photo.jpg existe (sinon, rond blanc) ---------- */
+  const portrait = document.querySelector('.portrait');
+  if (portrait) {
+    const source = portrait.getAttribute('data-src');
+    const probe = new Image();
+    probe.onload = () => portrait.setAttribute('href', source);
+    probe.src = source;
+  }
+
+  /* ---------- 4. Vidéo : fichier video.mp4 ou lien YouTube ---------- */
+  const frame = document.querySelector('.video-frame');
+  const youtubeId = value => {
+    value = value.trim();
+    if (/^[\w-]{11}$/.test(value)) return value;
+    const match = value.match(/(?:youtu\.be\/|[?&]v=|\/(?:embed|shorts|live)\/)([\w-]{11})/);
+    return match ? match[1] : '';
+  };
+  if (frame) {
+    const id = youtubeId(frame.dataset.youtube || '');
+    if (id) {
+      const video = frame.querySelector('video');
+      if (video) { video.onerror = null; video.remove(); }
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?rel=0`;
+      iframe.title = 'Video presentation of Maxime Samson';
+      iframe.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.loading = 'lazy';
+      frame.classList.remove('is-empty');
+      frame.appendChild(iframe);
+    }
+  }
+
+  /* ---------- 5. Copier l'adresse e-mail ---------- */
+  const copyButton = document.querySelector('[data-copy-email]');
+  if (copyButton) {
+    const label = copyButton.textContent;
+    copyButton.addEventListener('click', async () => {
+      const mail = document.querySelector('a[href^="mailto:"]');
+      const address = mail ? mail.getAttribute('href').slice(7).split('?')[0] : '';
+      try {
+        await navigator.clipboard.writeText(address);
+        copyButton.textContent = 'Address copied';
+      } catch {
+        copyButton.textContent = 'Select the address to copy it';
+      }
+      setTimeout(() => { copyButton.textContent = label; }, 2500);
+    });
+  }
+})();
+</script>
+</body>
+</html>
