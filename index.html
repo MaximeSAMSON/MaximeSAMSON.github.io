@@ -408,83 +408,85 @@
     </div>
   </section>
 
-  <!-- =========================================================
+    <!-- =========================================================
        ✏️ RUBRIQUE : ENGINEERING COURSE
        Pour ajouter une ligne, copie un bloc <li class="entry"> ... </li> et modifie-le.
        ========================================================= -->
+  <style>
+    /* Engineering course: une ligne par groupe de matières */
+    .entries.courses .entry { grid-template-columns: 11rem minmax(0, 1fr); padding: 1.15rem 0; }
+    .course-unit { margin: 0; padding-top: .12rem; font-size: 1rem; font-weight: 650; line-height: 1.35; }
+    .course-list { font-family: var(--serif); font-size: 1.05rem; line-height: 1.55; }
+    @media (max-width: 560px) { .entries.courses .entry { grid-template-columns: minmax(0, 1fr); row-gap: .35rem; } }
+  </style>
   <section class="page" id="engineering-course" data-page data-title="Engineering course" aria-labelledby="engineering-title">
     <div class="container">
       <header class="page-head">
         <h1 class="page-title" id="engineering-title" tabindex="-1">Engineering course</h1>
-        <p class="lede">How I moved from fundamental physics to engineering, and the projects that confirmed my interest in aerospace.</p>
+        <p class="lede">My first-year courses (2026–2027) in the Fluid Mechanics, Energy and Environment department (MF2E) at ENSEEIHT, Toulouse.</p>
       </header>
 
-      <section class="block" aria-labelledby="education-title">
-        <h2 class="block-title" id="education-title">Education</h2>
-        <ol class="entries">
+      <!-- Une ligne = un groupe de matières : le thème à gauche, les matières à droite. -->
+      <section class="block" aria-labelledby="semester1-title">
+        <h2 class="block-title" id="semester1-title">Semester 1</h2>
+        <ul class="entries courses">
           <li class="entry">
-            <p class="entry-when">2026–2029</p>
-            <div>
-              <h3 class="entry-title">Engineering degree, Fluid Mechanics, Energy &amp; Environment</h3>
-              <p class="entry-where">ENSEEIHT, Toulouse</p>
-              <p class="entry-text">First year of the engineering programme.</p>
-            </div>
+            <h3 class="course-unit">Mechanics &amp; thermodynamics</h3>
+            <p class="course-list">Introduction to fluid mechanics, continuum mechanics, linear elasticity, thermodynamics</p>
           </li>
           <li class="entry">
-            <p class="entry-when">2025–2026</p>
-            <div>
-              <h3 class="entry-title">BSc in Fundamental Physics (L3)</h3>
-              <p class="entry-where">Université Paul Sabatier, Toulouse</p>
-              <p class="entry-text">This degree opened the door to engineering school through the parallel admission route for university students (AST, GEI-UNIV).</p>
-            </div>
+            <h3 class="course-unit">Mathematics</h3>
+            <p class="course-list">Probability, integration</p>
           </li>
           <li class="entry">
-            <p class="entry-when">2023–2025</p>
-            <div>
-              <h3 class="entry-title">CUPGE, Physics &amp; Chemistry</h3>
-              <p class="entry-where">Université Paul Sabatier, Toulouse</p>
-              <p class="entry-text">Engineering preparatory programme, with a heavy load of mathematics, physics and chemistry.</p>
-            </div>
+            <h3 class="course-unit">Computing</h3>
+            <p class="course-list">Imperative programming, applied computing</p>
           </li>
-        </ol>
+          <li class="entry">
+            <h3 class="course-unit">Lab work</h3>
+            <p class="course-list">Linear elasticity (strain gauge measurements), thermodynamics (cooling tower)</p>
+          </li>
+          <li class="entry">
+            <h3 class="course-unit">Languages</h3>
+            <p class="course-list">English (first foreign language), Spanish (second foreign language)</p>
+          </li>
+          <li class="entry">
+            <h3 class="course-unit">Soft skills</h3>
+            <p class="course-list">Careers and management</p>
+          </li>
+          <li class="entry">
+            <h3 class="course-unit">Sport</h3>
+            <p class="course-list">Rock and salsa dancing</p>
+          </li>
+        </ul>
       </section>
 
-      <section class="block" aria-labelledby="projects-title">
-        <h2 class="block-title" id="projects-title">Research and projects</h2>
-        <ol class="entries">
+      <section class="block" aria-labelledby="semester2-title">
+        <h2 class="block-title" id="semester2-title">Semester 2</h2>
+        <ul class="entries courses">
           <li class="entry">
-            <p class="entry-when">January 2026</p>
-            <div>
-              <h3 class="entry-title">Research Intern</h3>
-              <p class="entry-where">ISAE-SUPAERO, DEOS Department, Toulouse</p>
-              <p class="entry-text">Measured RF components with a vector network analyser (VNA): antennas, filters, attenuators, circulators, couplers, waveguides and cavities. Explored a PhD topic: time-reversal plasma ignition.</p>
-            </div>
+            <h3 class="course-unit">Fluid Mechanics&nbsp;3</h3>
+            <p class="course-list">Potential flows, low Reynolds number flows, bubbles, drops and particles</p>
           </li>
           <li class="entry">
-            <p class="entry-when">Course project</p>
-            <div>
-              <h3 class="entry-title">Simulation of the Artemis II free-return trajectory</h3>
-              <p class="entry-where">Numerical simulation in Python</p>
-              <p class="entry-text">From a fixed-Moon two-body model to the full figure-eight trajectory around the Moon, integrated with a hand-written RK4 scheme and animated with Matplotlib in Jupyter.</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-
-      <section class="block" aria-labelledby="tools-title">
-        <h2 class="block-title" id="tools-title">Skills</h2>
-        <ul class="entries">
-          <li class="entry">
-            <p class="entry-when">Programming</p>
-            <p class="entry-title">Python, Linux shell, Fortran</p>
+            <h3 class="course-unit">Hydraulics</h3>
+            <p class="course-list">Integral balances, problem-based learning project in hydraulics</p>
           </li>
           <li class="entry">
-            <p class="entry-when">Software &amp; tools</p>
-            <p class="entry-title">S2VNA, LaTeX, Jupyter, Matplotlib</p>
+            <h3 class="course-unit">Scientific Computing&nbsp;1</h3>
+            <p class="course-list">Finite volume methods, laminar flow simulations with Ansys Fluent</p>
           </li>
           <li class="entry">
-            <p class="entry-when">Soft skills</p>
-            <p class="entry-title">Teamwork</p>
+            <h3 class="course-unit">Mathematics&nbsp;2</h3>
+            <p class="course-list">Finite differences, statistics, introduction to optimisation</p>
+          </li>
+          <li class="entry">
+            <h3 class="course-unit">Signal and Control Systems</h3>
+            <p class="course-list">Signal processing and automatic control</p>
+          </li>
+          <li class="entry">
+            <h3 class="course-unit">Soft &amp; Human Skills&nbsp;2</h3>
+            <p class="course-list">Professional communication and English, Spanish, sport, agile methods, management elective (leadership, entrepreneurship or citizenship)</p>
           </li>
         </ul>
       </section>
