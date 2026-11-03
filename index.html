@@ -341,6 +341,7 @@
   <nav class="nav" aria-label="Sections">
     <ul>
       <li><a href="#engineering-course">Engineering course</a></li>
+      <li><a href="#career">Career</a></li>
       <li><a href="#international-mobility">International mobility</a></li>
       <li><a href="#civic-engagement">Civic engagement</a></li>
       <li><a href="#other-activities">Other activities</a></li>
@@ -462,7 +463,88 @@
       <p class="back"><a href="#home">Back to home</a></p>
     </div>
   </section>
+  <!-- =========================================================
+       ✏️ RUBRIQUE : CAREER
+       Pour ajouter une ligne, copie un bloc <li class="entry"> ... </li> et modifie-le.
+       ========================================================= -->
+  <section class="page" id="career" data-page data-title="Career" aria-labelledby="career-title">
+    <div class="container">
+      <header class="page-head">
+        <h1 class="page-title" id="career-title" tabindex="-1">Career</h1>
+        <p class="lede">My path from university to engineering school, and the experience I have gained along the way.</p>
+      </header>
 
+      <section class="block" aria-labelledby="path-title">
+        <h2 class="block-title" id="path-title">Education</h2>
+        <ol class="entries">
+          <li class="entry">
+            <p class="entry-when">2026–2029</p>
+            <div>
+              <h3 class="entry-title">Engineering degree, Fluid Mechanics, Energy &amp; Environment</h3>
+              <p class="entry-where">ENSEEIHT, Toulouse</p>
+              <p class="entry-text">First-year student in the MF2E department.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-when">2025–2026</p>
+            <div>
+              <h3 class="entry-title">BSc in Fundamental Physics (L3)</h3>
+              <p class="entry-where">Université Paul Sabatier, Toulouse</p>
+              <p class="entry-text">Admitted to engineering school through the parallel admission route for university students (AST, GEI-UNIV).</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-when">2023–2025</p>
+            <div>
+              <h3 class="entry-title">CUPGE, Physics &amp; Chemistry</h3>
+              <p class="entry-where">Université Paul Sabatier, Toulouse</p>
+              <p class="entry-text">Engineering preparatory programme, with a heavy load of mathematics, physics and chemistry.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="block" aria-labelledby="experience-title">
+        <h2 class="block-title" id="experience-title">Experience</h2>
+        <ol class="entries">
+          <li class="entry">
+            <p class="entry-when">January 2026</p>
+            <div>
+              <h3 class="entry-title">Research Intern</h3>
+              <p class="entry-where">ISAE-SUPAERO, DEOS Department, Toulouse</p>
+              <p class="entry-text">Measured RF components with a vector network analyser (VNA): antennas, filters, attenuators, circulators, couplers, waveguides and cavities. Explored a PhD topic: time-reversal plasma ignition.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-when">2026</p>
+            <div>
+              <h3 class="entry-title">Mathematics Tutor</h3>
+              <p class="entry-where">Université Paul Sabatier, Toulouse</p>
+              <p class="entry-text">Supported first-year CUPGE students and marked exam papers.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-when">Summers 2025 and 2026</p>
+            <div>
+              <h3 class="entry-title">Lifeguard (BNSSA)</h3>
+              <p class="entry-where">Village Club du Soleil Le Reverdi (2025), ClicoChic campsite, Capfun group (2026)</p>
+              <p class="entry-text">Supervised swimming pools, provided first aid, and welcomed and informed holidaymakers.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-when">July–August 2024</p>
+            <div>
+              <h3 class="entry-title">Fresh Produce Assistant</h3>
+              <p class="entry-where">Super U, Léguevin</p>
+              <p class="entry-text">Stocked fruit and vegetable shelves and checked product quality.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <p class="back"><a href="#home">Back to home</a></p>
+    </div>
+  </section>
   <!-- =========================================================
        ✏️ RUBRIQUE : INTERNATIONAL MOBILITY
        ========================================================= -->
@@ -628,7 +710,7 @@
     <div class="container cv-head">
       <header class="page-head">
         <h1 class="page-title" id="cv-title" tabindex="-1">Curriculum vitae</h1>
-        <p class="lede">Read my CV online or download it as a PDF.</p>
+        <p class="lede">Read my CV online or download it as a PDF, in English or in French.</p>
         <div class="actions">
           <a class="btn btn-primary" href="cv.pdf" target="_blank" rel="noopener">Open the PDF</a>
           <a class="btn btn-secondary" href="cv.pdf" download="CV-Maxime-Samson.pdf">Download the PDF</a>
@@ -641,7 +723,21 @@
         <div class="cv-fallback"><p>The preview can't be shown in this browser. Use “Open the PDF” above.</p></div>
       </object>
     </div>
+    <div class="container cv-head">
+      <div class="page-head">
+        <h2 class="block-title" id="cv-fr-title">French version</h2>
+        <div class="actions">
+          <a class="btn btn-primary" href="cv-fr.pdf" target="_blank" rel="noopener">Open the French PDF</a>
+          <a class="btn btn-secondary" href="cv-fr.pdf" download="CV-Maxime-Samson-FR.pdf">Download the French PDF</a>
+        </div>
+      </div>
+    </div>
 
+    <div class="container cv-body">
+      <object class="cv-preview" data="cv-fr.pdf" type="application/pdf" aria-label="CV de Maxime Samson en français">
+        <div class="cv-fallback"><p>The preview can't be shown in this browser. Use “Open the French PDF” above.</p></div>
+      </object>
+    </div>
     <div class="container cv-foot">
       <p class="back"><a href="#home">Back to home</a></p>
     </div>
